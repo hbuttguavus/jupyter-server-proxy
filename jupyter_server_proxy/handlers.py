@@ -561,13 +561,13 @@ class SuperviseAndProxyHandler(LocalProxyHandler):
 def setup_handlers(web_app, host_whitelist):
     host_pattern = '.*$'
     web_app.add_handlers('.*', [
-        (url_path_join(web_app.settings['base_url'], r'/proxy/(.*):(\d+)(.*)'),
+        (url_path_join(web_app.settings['base_url'], r'/jproxy/(.*):(\d+)(.*)'),
          RemoteProxyHandler, {'absolute_url': False, 'host_whitelist': host_whitelist}),
-        (url_path_join(web_app.settings['base_url'], r'/proxy/absolute/(.*):(\d+)(.*)'),
+        (url_path_join(web_app.settings['base_url'], r'/jproxy/absolute/(.*):(\d+)(.*)'),
          RemoteProxyHandler, {'absolute_url': True, 'host_whitelist': host_whitelist}),
-        (url_path_join(web_app.settings['base_url'], r'/proxy/(\d+)(.*)'),
+        (url_path_join(web_app.settings['base_url'], r'/jproxy/(\d+)(.*)'),
          LocalProxyHandler, {'absolute_url': False}),
-        (url_path_join(web_app.settings['base_url'], r'/proxy/absolute/(\d+)(.*)'),
+        (url_path_join(web_app.settings['base_url'], r'/jproxy/absolute/(\d+)(.*)'),
          LocalProxyHandler, {'absolute_url': True}),
     ])
 
